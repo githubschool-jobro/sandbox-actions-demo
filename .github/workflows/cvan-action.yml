@@ -1,7 +1,10 @@
 name: Cvan Shell
 
 on:
-  workflow_dispatch:
+  pull_request:
+    branches: [ main ]
+    - paths-ignore:
+        - '.github/'
 
 permissions:
   contents: read
