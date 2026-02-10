@@ -1,0 +1,21 @@
+name: Starter Shell
+
+on:
+    workflow_dispatch:
+
+permissions:
+    contents: read
+
+jobs:
+    build:
+        runs-on: windows-latest
+        steps:
+            - name: Checkout repository
+                uses: actions/checkout@v4
+
+            - name: Run PowerShell commands
+                shell: pwsh
+                run: |
+                    Write-Host "Running on Windows runner"
+                    Get-ChildItem -Force
+                    # Add your build/test/deploy commands below
