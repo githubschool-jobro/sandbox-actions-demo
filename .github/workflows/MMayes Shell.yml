@@ -1,4 +1,4 @@
-name: Mokelly Shell
+name: MMayes Shell
 
 on:
   workflow_dispatch:
