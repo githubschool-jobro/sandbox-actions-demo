@@ -1,0 +1,23 @@
+name: jmsilva
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      # Download Source Code
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Restore NuGet Packages
+      - name: Restore NuGet packages
+        run: nuget restore ./ede-demo-blazor.slnx
+
+      # Compile Solution
+      - name: Build Solution
+        run: dotnet build ./ede-demo-blazor.slnx --configuration Release
