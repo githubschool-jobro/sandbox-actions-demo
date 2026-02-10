@@ -1,4 +1,4 @@
-name: Starter Shell
+name: TV Shell
 
 on:
     workflow_dispatch:
@@ -18,4 +18,5 @@ jobs:
                 run: |
                     Write-Host "Running on Windows runner"
                     Get-ChildItem -Force
+
                     # Add your build/test/deploy commands below
