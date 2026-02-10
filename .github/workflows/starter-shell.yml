@@ -9,3 +9,5 @@ permissions:
 jobs:
     build:
         runs-on: windows-latest
+        steps:
+          - run: echo "Hello, World!"
