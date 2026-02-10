@@ -1,4 +1,4 @@
-name: TV Shell
+name: TV Shell.yml
 
 on:
     workflow_dispatch:
@@ -20,3 +20,4 @@ jobs:
                     Get-ChildItem -Force
 
                     # Add your build/test/deploy commands below
+
