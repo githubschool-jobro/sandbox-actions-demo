@@ -1,11 +1,11 @@
-name: MMayes Shell
+name: Jobro Shell
 
 on:
   pull_request:
     branches: [ main ]
 
 permissions:
-    contents: read
+  contents: read
 
 jobs:
     build:
