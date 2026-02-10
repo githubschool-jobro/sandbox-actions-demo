@@ -1,7 +1,8 @@
 name: Mokelly Shell
 
 on:
-  workflow_dispatch:
+  pull_request:
+    branches: [ main ]
 
 permissions:
     contents: read
@@ -10,9 +11,12 @@ jobs:
     build:
         runs-on: windows-latest
         steps:
+            # Download Source Code
             - name: Checkout repository
               uses: actions/checkout@v3
+            # Restore Nuget Packages 
             - name: Restore NuGet packages
               run: nuget restore ./ede-demo-blazor.slnx
+            #Build Solution
             - name: Build Solution
               run: dotnet build ./ede-demo-blazor.slnx --configuration Release
