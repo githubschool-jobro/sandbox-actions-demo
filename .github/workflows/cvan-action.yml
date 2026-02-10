@@ -1,4 +1,4 @@
-name: Jobro Shell
+name: Cvan Shell
 
 on:
   workflow_dispatch:
@@ -10,9 +10,12 @@ jobs:
     build:
         runs-on: windows-latest
         steps:
+            # Check out the repository
             - name: Checkout repository
               uses: actions/checkout@v3
+            # Set up .NET SDK and restore packages   
             - name: Restore NuGet packages
               run: nuget restore ./ede-demo-blazor.slnx
+            # Build the solution
             - name: Build Solution
               run: dotnet build ./ede-demo-blazor.slnx --configuration Release
