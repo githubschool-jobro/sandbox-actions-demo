@@ -2,7 +2,10 @@ name: Jobro Shell
 
 on:
   pull_request:
-    branches: [ main ]
+    branches: 
+      - main
+    paths-ignore:
+      - '.github/'
 
 permissions:
   contents: read
