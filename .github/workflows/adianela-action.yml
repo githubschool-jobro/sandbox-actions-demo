@@ -1,7 +1,12 @@
 name: Adianela Shell
 
+# trigger the workflow on pull request to main branch and ignore changes in .github folder
 on:
-  workflow_dispatch:
+  pull_request:
+    branches: 
+      -  main 
+    paths-ignore:
+      - '.github/'
 
 permissions:
   contents: read
