@@ -1,14 +1,14 @@
 name: Jobro Shell
 
 on:
-  pull_request:
+  push:
     branches: 
       - main
     paths-ignore:
       - '.github/'
 
 permissions:
-  contents: read
+  contents: write
   
 env:
   project_name: "ede-demo-blazor"
@@ -28,3 +28,17 @@ jobs:
             # Compile Solution
             - name: Build Solution
               run: dotnet build ./${{env.project_name}}.slnx --configuration Release
+
+            # Publish the application
+            - name: Publish application
+              run: dotnet publish ./${{env.project_name}}/${{env.project_name}}.csproj --configuration Release --output ./publish
+
+            # Compress the published output into a zip file
+            - name: Compress artifact
+              run: Compress-Archive -Path ./publish/* -DestinationPath ./${{env.project_name}}.zip
+
+            # Create a GitHub Release and upload the artifact
+            - name: Create GitHub Release
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              run: gh release create "v1.0.${{ github.run_number }}" "./${{env.project_name}}.zip" --title "Release v1.0.${{ github.run_number }}" --notes "Automated release from build ${{ github.run_number }}"
