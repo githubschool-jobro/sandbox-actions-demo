@@ -9,6 +9,9 @@ on:
 
 permissions:
   contents: read
+  
+env:
+  project_name: "ede-demo-blazor"
 
 jobs:
     build:
@@ -20,8 +23,8 @@ jobs:
 
             # Restore Nuget Packages
             - name: Restore NuGet packages
-              run: nuget restore ./ede-demo-blazor.slnx
+              run: nuget restore ./${{env.project_name}}.slnx
 
             # Compile Solution
             - name: Build Solution
-              run: dotnet build ./ede-demo-blazor.slnx --configuration Release
+              run: dotnet build ./${{env.project_name}}.slnx --configuration Release
