@@ -7,7 +7,7 @@ Demonstrate all aspects of DevOps in GitHub
 
 ## Todos
 - [X] How to setup gitignore for specific files and folders
-- [ ] Additional overview on how to use GitHub within Visual Studio
+- [X] Additional overview on how to use GitHub within Visual Studio
 - [ ] Hands on examples that we can test in our environment (shared repository we spoke about)
 - [ ] GitHub Projects and if/how it can replace Jira
 - [ ] Additional examples of Copilot assisting with UI design, identifying security issues, debugging process
